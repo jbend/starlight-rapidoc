@@ -1,0 +1,19 @@
+{
+	"name": "starlight-plugin-template-docs",
+	"type": "module",
+	"version": "0.0.1",
+	"scripts": {
+		"dev": "astro dev",
+		"start": "astro dev",
+		"build": "astro build",
+		"preview": "astro preview",
+		"astro": "astro"
+	},
+	"dependencies": {
+		"@astrojs/mdx": "^4.3.12",
+		"@astrojs/starlight": "catalog:",
+		"astro": "catalog:",
+		"sharp": "catalog:",
+		"starlight-plugin-template": "workspace:*"
+	}
+}

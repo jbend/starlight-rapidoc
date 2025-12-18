@@ -1,0 +1,35 @@
+{
+	"name": "starlight-plugin-template",
+	"description": "Starlight plugin template for creating new Starlight plugins",
+	"version": "0.0.1",
+	"type": "module",
+	"main": "./dist/index.js",
+	"module": "./dist/index.mjs",
+	"types": "./dist/index.d.ts",
+	"scripts": {
+		"build": "tsdown --format esm --format cjs",
+		"dev": "tsdown ./index.ts --watch"
+	},
+	"exports": {
+		".": "./index.ts",
+		"./components/AccentSection.astro": "./components/AccentSection.astro",
+		"./package.json": "./package.json"
+	},
+	"peerDependencies": {
+		"@astrojs/starlight": "catalog:"
+	},
+	"devDependencies": {
+		"@types/node": "^24.10.1",
+		"tsdown": "^0.16.7",
+		"typescript": "^5.9.3",
+		"zod": "^4.1.13"
+	},
+	"keywords": [
+		"astro",
+		"starlight",
+		"plugin"
+	],
+	"author": "jbend",
+	"license": "MIT",
+	"packageManager": "pnpm@10.17.0"
+}
