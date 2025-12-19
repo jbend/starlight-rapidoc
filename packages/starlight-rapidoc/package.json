@@ -12,6 +12,7 @@
 	},
 	"exports": {
 		".": "./index.ts",
+		"./schema": "./schema.ts",
 		"./components/TwoColumnContentOverride.astro": "./components/TwoColumnContentOverride.astro",
 		"./package.json": "./package.json"
 	},

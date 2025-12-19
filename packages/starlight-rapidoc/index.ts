@@ -31,7 +31,7 @@ export default function starlightRapidocPlugin(
 				updateConfig,
 				logger,
 				addIntegration,
-				config: starlightConfig,
+				config,
 			}) => {
 				const parsedSuccess = starlightRapidocConfig.success;
 				if (!parsedSuccess) {
@@ -50,7 +50,7 @@ export default function starlightRapidocPlugin(
 				logger.info(`Reading hex color fg dark: ${hexColorFgDark}`);
 				updateConfig({
 					components: {
-						...starlightConfig.components,
+						...config.components,
 						TwoColumnContentOverride: twoColumnContentOverridePath,
 					},
 				});
