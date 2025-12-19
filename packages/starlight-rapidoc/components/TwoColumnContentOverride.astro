@@ -1,0 +1,93 @@
+---
+console.log("Override is active!");
+
+import starlightTemplateConfig from "virtual:starlight-rapidoc-config";
+import Default from "@astrojs/starlight/components/TwoColumnContent.astro";
+
+const hexColorBgLight = starlightRapidocConfig.hexColorBgLight;
+const hexColorBgDark = starlightRapidocConfig.hexColorBgDark;
+const hexColorFgLight = starlightRapidocConfig.hexColorFgLight;
+const hexColorFgDark = starlightRapidocConfig.hexColorFgDark;
+
+const {
+	specFile,
+	serverUrl,
+	allowTry,
+	allowSpecDownload,
+	allowServerSelection,
+} = Astro.locals.starlightRoute.entry.data;
+const isOpenApiPage = !!specFile;
+---
+{
+  isOpenApiPage ? (
+      <script slot="head" src="https://unpkg.com/rapidoc/dist/rapidoc-min.js"></script>
+      
+      <div class="rapidoc-container">
+        <rapi-doc
+          id="rapidoc"
+          layout="column"
+          render-style="view"
+          spec-url={specFile}
+          schema-style="table"
+          schema-description-expanded="true"
+          primary-color="#0063a3"
+          show-header="false"
+          server-url={serverUrl}
+          default-api-server={serverUrl}
+          allow-server-selection={allowServerSelection?.toString()}
+          allow-try={allowTry?.toString()}
+          allow-authentication={allowTry?.toString()}
+          allow-spec-file-download={allowSpecDownload?.toString()}
+        />
+      </div>
+  ) : (
+  <Default>
+      <slot />
+  </Default>
+  )
+}
+
+<style>
+  .rapidoc-container {
+    width: 100%;
+  }
+  
+  rapi-doc {
+    width: 100%;
+    padding-inline: 1rem;
+    padding-top: 1rem;
+  }
+</style>
+
+<script>
+  const observer = new MutationObserver((mutations) => {
+    mutations.forEach((mutation) => {
+      if (mutation.attributeName === 'data-theme') {
+        const theme = document.documentElement.getAttribute('data-theme') || "dark";
+        setRapidocTheme(theme);
+      }
+    });
+  });
+
+  observer.observe(document.documentElement, { attributes: true });
+
+  const rapiDoc = document.querySelector("#rapidoc");
+
+  const setRapidocTheme = (theme: string = "dark") => {
+    if (!rapiDoc) return;
+
+    rapiDoc.setAttribute("theme", theme);
+    if (theme === "dark") {
+      rapiDoc.setAttribute("bg-color", "#252a2e");
+      rapiDoc.setAttribute("text-color", "#f1f1f6");
+    } else {
+      rapiDoc.setAttribute("bg-color", "#ffffff");
+      rapiDoc.setAttribute("text-color", "#252a2e");
+    }
+  };
+
+  window.addEventListener("DOMContentLoaded", () => {
+    const theme = document.documentElement.getAttribute('data-theme') || "dark";
+    setRapidocTheme(theme);
+  });
+</script>

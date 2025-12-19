@@ -1,16 +1,16 @@
 import type { ViteUserConfig } from "astro";
 
-import type { StarlightTemplateConfig } from "..";
+import type { StarlightRapidocConfig } from "..";
 
-export function vitePluginStarlightTemplate(
-	config: StarlightTemplateConfig,
+export function vitePluginStarlightRapidoc(
+	config: StarlightRapidocConfig,
 ): VitePlugin {
-	const moduleId = "virtual:starlight-plugin-template-config";
+	const moduleId = "virtual:starlight-rapidoc-config";
 	const resolvedModuleId = `\0${moduleId}`;
 	const moduleContent = `export default ${JSON.stringify(config)}`;
 
 	return {
-		name: "vite-plugin-starlight-template",
+		name: "vite-plugin-starlight-rapidoc",
 		load(id) {
 			return id === resolvedModuleId ? moduleContent : undefined;
 		},

@@ -1,6 +1,6 @@
 {
-	"name": "starlight-plugin-template",
-	"description": "Starlight plugin template for creating new Starlight plugins",
+	"name": "starlight-rapidoc",
+	"description": "Starlight plugin for adding Rapidoc to your documentation",
 	"version": "0.0.1",
 	"type": "module",
 	"main": "./dist/index.js",
@@ -12,7 +12,7 @@
 	},
 	"exports": {
 		".": "./index.ts",
-		"./components/AccentSection.astro": "./components/AccentSection.astro",
+		"./components/TwoColumnContentOverride.astro": "./components/TwoColumnContentOverride.astro",
 		"./package.json": "./package.json"
 	},
 	"peerDependencies": {

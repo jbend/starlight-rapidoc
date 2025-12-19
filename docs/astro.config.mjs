@@ -3,18 +3,21 @@
 import mdx from "@astrojs/mdx";
 import starlight from "@astrojs/starlight";
 import { defineConfig } from "astro/config";
-import starlightPluginTemplate from "starlight-plugin-template";
+import starlightRapidocPlugin from "../packages/starlight-rapidoc";
 
 // https://astro.build/config
 export default defineConfig({
-	site: "https://starlight-plugin-template.github.io",
-	base: "/starlight-plugin-template",
+	site: "https://starlight-rapidoc.github.io",
+	base: "/",
 	integrations: [
 		starlight({
 			title: "Plugin Template",
 			plugins: [
-				starlightPluginTemplate({
-					templateParameter: "Hello, Starlight!",
+				starlightRapidocPlugin({
+					hexColorBgLight: "#0063a3",
+					hexColorBgDark: "#0063a3",
+					hexColorFgLight: "#0063a3",
+					hexColorFgDark: "#0063a3",
 				}),
 			],
 			social: [
@@ -37,7 +40,7 @@ export default defineConfig({
 					label: "Demo",
 					items: [
 						// Each item here is one entry in the navigation menu.
-						{ label: "AccentSection", slug: "demo/accent-section" },
+						{ label: "OpenAPI", slug: "demo/openapi" },
 					],
 				},
 			],
