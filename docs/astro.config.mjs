@@ -7,11 +7,11 @@ import starlightRapidocPlugin from "../packages/starlight-rapidoc";
 
 // https://astro.build/config
 export default defineConfig({
-	site: "https://starlight-rapidoc.github.io",
+	site: "https://github.com/jbend/starlight-rapidoc",
 	base: "/",
 	integrations: [
 		starlight({
-			title: "Plugin Template",
+			title: "Starlight Rapidoc",
 			plugins: [
 				starlightRapidocPlugin({
 					hexColorBgLight: "#0063a3",
@@ -24,7 +24,7 @@ export default defineConfig({
 				{
 					icon: "github",
 					label: "GitHub",
-					href: "https://github.com/jbend/starlight-plugin-template",
+					href: "https://github.com/jbend/starlight-rapidoc",
 				},
 			],
 			sidebar: [
