@@ -51,7 +51,7 @@ export default function starlightRapidocPlugin(
 				updateConfig({
 					components: {
 						...config.components,
-						TwoColumnContentOverride: twoColumnContentOverridePath,
+						TwoColumnContent: twoColumnContentOverridePath,
 					},
 				});
 

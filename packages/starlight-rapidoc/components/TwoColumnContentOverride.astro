@@ -1,13 +1,13 @@
 ---
-console.log("Override is active!");
-
-import starlightTemplateConfig from "virtual:starlight-rapidoc-config";
+import starlightRapidocConfig from "virtual:starlight-rapidoc-config";
 import Default from "@astrojs/starlight/components/TwoColumnContent.astro";
 
-const hexColorBgLight = starlightRapidocConfig.hexColorBgLight;
-const hexColorBgDark = starlightRapidocConfig.hexColorBgDark;
-const hexColorFgLight = starlightRapidocConfig.hexColorFgLight;
-const hexColorFgDark = starlightRapidocConfig.hexColorFgDark;
+
+const hexColorBgLight = starlightRapidocConfig.data?.hexColorBgLight;
+const hexColorBgDark = starlightRapidocConfig.data?.hexColorBgDark;
+const hexColorFgLight = starlightRapidocConfig.data?.hexColorFgLight;
+const hexColorFgDark = starlightRapidocConfig.data?.hexColorFgDark;
+
 
 const {
 	specFile,
