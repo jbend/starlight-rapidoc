@@ -3,10 +3,17 @@ import starlightRapidocConfig from "virtual:starlight-rapidoc-config";
 import Default from "@astrojs/starlight/components/TwoColumnContent.astro";
 
 
-const hexColorBgLight = starlightRapidocConfig.data?.hexColorBgLight;
-const hexColorBgDark = starlightRapidocConfig.data?.hexColorBgDark;
-const hexColorFgLight = starlightRapidocConfig.data?.hexColorFgLight;
-const hexColorFgDark = starlightRapidocConfig.data?.hexColorFgDark;
+const hexColorBgLight = starlightRapidocConfig.hexColorBgLight ?? "#f0f0f0";
+const hexColorBgDark = starlightRapidocConfig.hexColorBgDark ?? "#1a1a1a";
+const hexColorFgLight = starlightRapidocConfig.hexColorFgLight ?? "#333333";
+const hexColorFgDark = starlightRapidocConfig.hexColorFgDark ?? "#e0e0e0";
+
+// console.log(starlightRapidocConfig);
+
+// console.log(hexColorBgLight);
+// console.log(hexColorBgDark);
+// console.log(hexColorFgLight);
+// console.log(hexColorFgDark);
 
 
 const {
@@ -59,7 +66,12 @@ const isOpenApiPage = !!specFile;
   }
 </style>
 
-<script>
+<script define:vars={{ hexColorBgDark, hexColorFgDark, hexColorBgLight, hexColorFgLight }}>
+  // console.log(`hexColorBgDark: ${hexColorBgDark}`);
+  // console.log(`hexColorFgDark: ${hexColorFgDark}`);
+  // console.log(`hexColorBgLight: ${hexColorBgLight}`);
+  // console.log(`hexColorFgLight: ${hexColorFgLight}`);
+
   const observer = new MutationObserver((mutations) => {
     mutations.forEach((mutation) => {
       if (mutation.attributeName === 'data-theme') {
@@ -73,21 +85,31 @@ const isOpenApiPage = !!specFile;
 
   const rapiDoc = document.querySelector("#rapidoc");
 
-  const setRapidocTheme = (theme: string = "dark") => {
+  const setRapidocTheme = (theme = "dark") => {
     if (!rapiDoc) return;
+
+    // console.log(`hexColorBgDarkL ${hexColorBgDark}`);
+    // console.log(`hexColorFgDark: ${hexColorFgDark}`);
+    // console.log(`hexColorBgLight: ${hexColorBgLight}`);
+    // console.log(`hexColorFgLight: ${hexColorFgLight}`);
 
     rapiDoc.setAttribute("theme", theme);
     if (theme === "dark") {
-      rapiDoc.setAttribute("bg-color", "#252a2e");
-      rapiDoc.setAttribute("text-color", "#f1f1f6");
+      // console.log(`Setting bg-color to ${hexColorBgDark}`);
+      rapiDoc.setAttribute("bg-color", `${hexColorBgDark}`);
+      // console.log(`Setting text-color to ${hexColorFgDark}`);
+      rapiDoc.setAttribute("text-color", `${hexColorFgDark}`);
     } else {
-      rapiDoc.setAttribute("bg-color", "#ffffff");
-      rapiDoc.setAttribute("text-color", "#252a2e");
+      // console.log(`Setting bg-color to ${hexColorBgLight}`);
+      rapiDoc.setAttribute("bg-color", `${hexColorBgLight}`);
+      // console.log(`Setting text-color to ${hexColorFgLight}`);
+      rapiDoc.setAttribute("text-color", `${hexColorFgLight}`);
     }
   };
 
   window.addEventListener("DOMContentLoaded", () => {
     const theme = document.documentElement.getAttribute('data-theme') || "dark";
+    console.log(`DOMContentLoaded: Setting theme to ${theme}`);
     setRapidocTheme(theme);
   });
 </script>
