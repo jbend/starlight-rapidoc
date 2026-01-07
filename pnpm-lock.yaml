@@ -61,11 +61,10 @@ importers:
         version: link:../packages/starlight-rapidoc
 
   packages/starlight-rapidoc:
-    dependencies:
+    devDependencies:
       '@astrojs/starlight':
         specifier: 'catalog:'
         version: 0.36.3(astro@5.16.1(@types/node@24.10.1)(rollup@4.53.3)(typescript@5.9.3)(yaml@2.8.1))
-    devDependencies:
       '@types/node':
         specifier: ^24.10.1
         version: 24.10.1

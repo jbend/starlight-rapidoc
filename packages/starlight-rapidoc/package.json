@@ -16,10 +16,8 @@
 		"./components/TwoColumnContentOverride.astro": "./components/TwoColumnContentOverride.astro",
 		"./package.json": "./package.json"
 	},
-	"peerDependencies": {
-		"@astrojs/starlight": "catalog:"
-	},
 	"devDependencies": {
+		"@astrojs/starlight": "catalog:",
 		"@types/node": "^24.10.1",
 		"tsdown": "^0.16.7",
 		"typescript": "^5.9.3",
