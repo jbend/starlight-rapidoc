@@ -25,3 +25,11 @@ export type StarlightRapidocUserConfig = z.infer<
 export type StarlightRapidocConfig = z.infer<
 	typeof StarlightRapidocConfigSchema
 >;
+
+// Resolved config with all defaults applied (non-nullable)
+export type ResolvedStarlightRapidocConfig = {
+	hexColorBgLight: string;
+	hexColorBgDark: string;
+	hexColorFgLight: string;
+	hexColorFgDark: string;
+};

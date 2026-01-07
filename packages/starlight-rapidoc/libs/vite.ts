@@ -1,9 +1,9 @@
 import type { ViteUserConfig } from "astro";
 
-import type { StarlightRapidocConfig } from "..";
+import type { ResolvedStarlightRapidocConfig } from "./config";
 
 export function vitePluginStarlightRapidoc(
-	config: StarlightRapidocConfig,
+	config: ResolvedStarlightRapidocConfig,
 ): VitePlugin {
 	const moduleId = "virtual:starlight-rapidoc-config";
 	const resolvedModuleId = `\0${moduleId}`;

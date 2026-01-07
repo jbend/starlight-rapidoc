@@ -39,15 +39,21 @@ export default function starlightRapidocPlugin(
 					return;
 				}
 
-				const hexColorBgLight = starlightRapidocConfig.data?.hexColorBgLight;
-				const hexColorBgDark = starlightRapidocConfig.data?.hexColorBgDark;
-				const hexColorFgLight = starlightRapidocConfig.data?.hexColorFgLight;
-				const hexColorFgDark = starlightRapidocConfig.data?.hexColorFgDark;
+				// Apply default values for null/undefined config values
 
-				logger.info(`Reading hex color bg light: ${hexColorBgLight}`);
-				logger.info(`Reading hex color bg dark: ${hexColorBgDark}`);
-				logger.info(`Reading hex color fg light: ${hexColorFgLight}`);
-				logger.info(`Reading hex color fg dark: ${hexColorFgDark}`);
+
+				const resolvedConfig = {
+					hexColorBgLight: starlightRapidocConfig.data?.hexColorBgLight ?? "#F9FAFB",//"#f1f1f6",
+					hexColorBgDark: starlightRapidocConfig.data?.hexColorBgDark ?? "#111827",//"#252a2e",
+					hexColorFgLight: starlightRapidocConfig.data?.hexColorFgLight ?? "#1F2937",//"#171c1e",
+					hexColorFgDark: starlightRapidocConfig.data?.hexColorFgDark ?? "#F3F4F6",//"#f1f1f6",
+				};
+
+				logger.info(`[starlight-rapidoc] Config loaded:`);
+				logger.info(`  hexColorBgLight: ${resolvedConfig.hexColorBgLight}`);
+				logger.info(`  hexColorBgDark: ${resolvedConfig.hexColorBgDark}`);
+				logger.info(`  hexColorFgLight: ${resolvedConfig.hexColorFgLight}`);
+				logger.info(`  hexColorFgDark: ${resolvedConfig.hexColorFgDark}`);
 				updateConfig({
 					components: {
 						...config.components,
@@ -62,7 +68,7 @@ export default function starlightRapidocPlugin(
 							updateConfig({
 								vite: {
 									plugins: [
-										vitePluginStarlightRapidoc(starlightRapidocConfig.data ?? {}),
+										vitePluginStarlightRapidoc(resolvedConfig),
 									],
 								},
 							});
