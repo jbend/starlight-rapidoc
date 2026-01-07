@@ -17,7 +17,7 @@ export default defineConfig({
 					hexColorBgLight: "#f1f1f6",
 					hexColorFgLight: "#171c1e",
 					hexColorBgDark: "#252a2e",
-					hexColorFgDark: "#f1f1f6",	
+					hexColorFgDark: "#f1f1f6",
 				}),
 			],
 			social: [
