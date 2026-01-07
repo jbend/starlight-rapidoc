@@ -3,10 +3,10 @@ import starlightRapidocConfig from "virtual:starlight-rapidoc-config";
 import Default from "@astrojs/starlight/components/TwoColumnContent.astro";
 
 
-const hexColorBgLight = starlightRapidocConfig.hexColorBgLight ?? "#f0f0f0";
-const hexColorBgDark = starlightRapidocConfig.hexColorBgDark ?? "#1a1a1a";
-const hexColorFgLight = starlightRapidocConfig.hexColorFgLight ?? "#333333";
-const hexColorFgDark = starlightRapidocConfig.hexColorFgDark ?? "#e0e0e0";
+const hexColorBgLight = starlightRapidocConfig.data?.hexColorBgLight ?? "#f0f0f0";
+const hexColorBgDark = starlightRapidocConfig.data?.hexColorBgDark ?? "#1a1a1a";
+const hexColorFgLight = starlightRapidocConfig.data?.hexColorFgLight ?? "#333333";
+const hexColorFgDark = starlightRapidocConfig.data?.hexColorFgDark ?? "#e0e0e0";
 
 // console.log(starlightRapidocConfig);
 

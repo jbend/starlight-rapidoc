@@ -62,7 +62,7 @@ export default function starlightRapidocPlugin(
 							updateConfig({
 								vite: {
 									plugins: [
-										vitePluginStarlightRapidoc(starlightRapidocConfig.data),
+										vitePluginStarlightRapidoc(starlightRapidocConfig.data ?? {}),
 									],
 								},
 							});

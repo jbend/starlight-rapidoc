@@ -9,14 +9,15 @@ const hexColorSchema = z
 	.regex(
 		hexColorRegex,
 		'Must be a valid hex color string (e.g., "#FFF" or "#FFFFFF")',
-	);
+	)
+	.nullable();
 
 export const StarlightRapidocConfigSchema = z.object({
 	hexColorBgLight: hexColorSchema,
 	hexColorBgDark: hexColorSchema,
 	hexColorFgLight: hexColorSchema,
 	hexColorFgDark: hexColorSchema,
-});
+}).partial().nullish();
 
 export type StarlightRapidocUserConfig = z.infer<
 	typeof StarlightRapidocConfigSchema

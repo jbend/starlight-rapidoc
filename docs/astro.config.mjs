@@ -13,12 +13,7 @@ export default defineConfig({
 		starlight({
 			title: "Starlight Rapidoc",
 			plugins: [
-				starlightRapidocPlugin({
-					hexColorBgLight: "#0063a3",
-					hexColorBgDark: "#0063a3",
-					hexColorFgLight: "#0063a3",
-					hexColorFgDark: "#0063a3",
-				}),
+				starlightRapidocPlugin(),
 			],
 			social: [
 				{
