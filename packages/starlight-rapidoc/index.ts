@@ -41,12 +41,15 @@ export default function starlightRapidocPlugin(
 
 				// Apply default values for null/undefined config values
 
-
 				const resolvedConfig = {
-					hexColorBgLight: starlightRapidocConfig.data?.hexColorBgLight ?? "#F9FAFB",//"#f1f1f6",
-					hexColorBgDark: starlightRapidocConfig.data?.hexColorBgDark ?? "#111827",//"#252a2e",
-					hexColorFgLight: starlightRapidocConfig.data?.hexColorFgLight ?? "#1F2937",//"#171c1e",
-					hexColorFgDark: starlightRapidocConfig.data?.hexColorFgDark ?? "#F3F4F6",//"#f1f1f6",
+					hexColorBgLight:
+						starlightRapidocConfig.data?.hexColorBgLight ?? "#F9FAFB", //"#f1f1f6",
+					hexColorBgDark:
+						starlightRapidocConfig.data?.hexColorBgDark ?? "#111827", //"#252a2e",
+					hexColorFgLight:
+						starlightRapidocConfig.data?.hexColorFgLight ?? "#1F2937", //"#171c1e",
+					hexColorFgDark:
+						starlightRapidocConfig.data?.hexColorFgDark ?? "#F3F4F6", //"#f1f1f6",
 				};
 
 				logger.info(`[starlight-rapidoc] Config loaded:`);
@@ -67,9 +70,7 @@ export default function starlightRapidocPlugin(
 						"astro:config:setup": ({ updateConfig }) => {
 							updateConfig({
 								vite: {
-									plugins: [
-										vitePluginStarlightRapidoc(resolvedConfig),
-									],
+									plugins: [vitePluginStarlightRapidoc(resolvedConfig)],
 								},
 							});
 						},

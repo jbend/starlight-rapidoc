@@ -1,15 +1,11 @@
 {
 	"name": "starlight-rapidoc",
 	"description": "Starlight plugin for adding Rapidoc to your documentation",
-	"version": "0.0.1",
+	"version": "0.1.0",
+	"author": "jbend",
+	"license": "MIT",
 	"type": "module",
-	"main": "./dist/index.js",
-	"module": "./dist/index.mjs",
-	"types": "./dist/index.d.ts",
-	"scripts": {
-		"build": "tsdown --format esm --format cjs",
-		"dev": "tsdown ./index.ts --watch"
-	},
+	"scripts": {},
 	"exports": {
 		".": "./index.ts",
 		"./schema": "./schema.ts",
@@ -28,7 +24,5 @@
 		"starlight",
 		"plugin"
 	],
-	"author": "jbend",
-	"license": "MIT",
 	"packageManager": "pnpm@10.17.0"
 }

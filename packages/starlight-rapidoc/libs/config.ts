@@ -12,12 +12,15 @@ const hexColorSchema = z
 	)
 	.nullable();
 
-export const StarlightRapidocConfigSchema = z.object({
-	hexColorBgLight: hexColorSchema,
-	hexColorBgDark: hexColorSchema,
-	hexColorFgLight: hexColorSchema,
-	hexColorFgDark: hexColorSchema,
-}).partial().nullish();
+export const StarlightRapidocConfigSchema = z
+	.object({
+		hexColorBgLight: hexColorSchema,
+		hexColorBgDark: hexColorSchema,
+		hexColorFgLight: hexColorSchema,
+		hexColorFgDark: hexColorSchema,
+	})
+	.partial()
+	.nullish();
 
 export type StarlightRapidocUserConfig = z.infer<
 	typeof StarlightRapidocConfigSchema
