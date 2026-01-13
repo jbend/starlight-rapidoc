@@ -1,60 +1,25 @@
 ---
 title: Overview
-description: The why and how of this template was created.
+description: An introduction to the starlight-rapidoc plugin.
 ---
 
-import { Aside } from '@astrojs/starlight/components';
-import { Badge } from '@astrojs/starlight/components';
+The **starlight-rapidoc** plugin integrates [Rapidoc](https://rapidocweb.com/) into Starlight documentation sites, enabling the display of OpenAPI specifications directly within documentation pages.
 
-Starlight Plugins are a powerful way to extend the functionality of Starlight. With plugins you can create themes,
-add new components, and customize existing ones. Building new plugins from scratch can be challenging, thankfully 
-many plugins have source code and serve as a great resource for learning the different approaches you can take.
+## Features
 
-<Aside>This template attemts to provide a starting point for building new plugins quickly by providing an opinionated structure 
-and configuration based on common patterns found in many existing plugins.</Aside>
+The plugin extends Starlight's content schema to support OpenAPI documentation through frontmatter fields, allowing you to specify specification files, server URLs, and interaction options. It provides customizable theming with configurable color schemes for both light and dark modes, ensuring consistent visual integration with your documentation site.
 
+## How It Works
 
-## Project Features
+The plugin overrides Starlight's `TwoColumnContent` component to conditionally render Rapidoc when an OpenAPI specification is present. Pages with OpenAPI specifications are automatically rendered using Rapidoc's interactive documentation viewer, while standard documentation pages maintain Starlight's default layout.
 
-- Monorepo management with [pnpm workspaces](https://pnpm.io/workspaces).
-- Starlight documentation and demo for the plugin.
-- [Biome](https://biomejs.dev/) for linting and formatting.
-- Changeset for versioning and publishing [Changesets](https://github.com/changesets/changesets).
-- GitHub [template](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template) to easily get started.
+## Configuration
 
-## Plugin Features
+The plugin accepts optional configuration parameters for customizing the color scheme:
 
-- Adding a **new** Starlight component.
-- Creating and using plugin configuration parameters.
-- Override Starlight component <Badge text="TODO" variant="note" /> .
+- `hexColorBgLight` - Background color for light mode
+- `hexColorBgDark` - Background color for dark mode
+- `hexColorFgLight` - Foreground color for light mode
+- `hexColorFgDark` - Foreground color for dark mode
 
-
-## Project Structure
-
-import { FileTree } from '@astrojs/starlight/components';
-
-Highlight the important files and directories in the project.
-
-<FileTree>
-
-- docs/ - Plugin documentation and demo.
-  - public/
-  - src
-    - content.config.ts - Add the Rapidoc schema to content schema.
-  - astro.config.mjs - Uses the plugin.
-  - package.json
-  - README.md
-- packages/
-  - starlight-plugin-template/ - The plugin itself.
-    - libs/
-      - config.ts - The plugin configuration.
-      - vite.ts - The plugin Vite integration.
-    - index.ts - The plugin entry point.
-    - package.json
-    - README.md
-- biome.json - Biome config (linting and formatting).
-- package.json
-- pnpm-workspace.yaml - Manage common dependencies.
-- README.md
-
-</FileTree>
+All color parameters accept hexadecimal color values and default to Starlight-compatible colors if not specified.
