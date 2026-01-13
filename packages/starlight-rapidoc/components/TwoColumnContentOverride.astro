@@ -44,51 +44,55 @@ const isOpenApiPage = !!specFile;
   )
 }
 
-<style>
-  .rapidoc-container {
-    width: 100%;
-  }
-  
-  rapi-doc {
-    width: 100%;
-    padding-inline: 1rem;
-    padding-top: 1rem;
-  }
-</style>
+{isOpenApiPage && (
+  <>
+    <style>
+      .rapidoc-container {
+        width: 100%;
+      }
+      
+      rapi-doc {
+        width: 100%;
+        padding-inline: 1rem;
+        padding-top: 1rem;
+      }
+    </style>
 
-<script define:vars={{ hexColorBgDark, hexColorFgDark, hexColorBgLight, hexColorFgLight }}>
-  console.log(`hexColorBgDark: ${hexColorBgDark}`);
-  console.log(`hexColorFgDark: ${hexColorFgDark}`);
-  console.log(`hexColorBgLight: ${hexColorBgLight}`);
-  console.log(`hexColorFgLight: ${hexColorFgLight}`);
+    <script define:vars={{ hexColorBgDark, hexColorFgDark, hexColorBgLight, hexColorFgLight }}>
+      console.log(`hexColorBgDark: ${hexColorBgDark}`);
+      console.log(`hexColorFgDark: ${hexColorFgDark}`);
+      console.log(`hexColorBgLight: ${hexColorBgLight}`);
+      console.log(`hexColorFgLight: ${hexColorFgLight}`);
 
-  const observer = new MutationObserver((mutations) => {
-    mutations.forEach((mutation) => {
-      if (mutation.attributeName === 'data-theme') {
+      const observer = new MutationObserver((mutations) => {
+        mutations.forEach((mutation) => {
+          if (mutation.attributeName === 'data-theme') {
+            const theme = document.documentElement.getAttribute('data-theme') || "dark";
+            setRapidocTheme(theme);
+          }
+        });
+      });
+
+      observer.observe(document.documentElement, { attributes: true });
+
+      const rapiDoc = document.querySelector("#rapidoc");
+
+      const setRapidocTheme = (theme = "dark") => {
+        if (!rapiDoc) return;
+        rapiDoc.setAttribute("theme", theme);
+        if (theme === "dark") {
+          rapiDoc.setAttribute("bg-color", `${hexColorBgDark}`);
+          rapiDoc.setAttribute("text-color", `${hexColorFgDark}`);
+        } else {
+          rapiDoc.setAttribute("bg-color", `${hexColorBgLight}`);
+          rapiDoc.setAttribute("text-color", `${hexColorFgLight}`);
+        }
+      };
+
+      window.addEventListener("DOMContentLoaded", () => {
         const theme = document.documentElement.getAttribute('data-theme') || "dark";
         setRapidocTheme(theme);
-      }
-    });
-  });
-
-  observer.observe(document.documentElement, { attributes: true });
-
-  const rapiDoc = document.querySelector("#rapidoc");
-
-  const setRapidocTheme = (theme = "dark") => {
-    if (!rapiDoc) return;
-    rapiDoc.setAttribute("theme", theme);
-    if (theme === "dark") {
-      rapiDoc.setAttribute("bg-color", `${hexColorBgDark}`);
-      rapiDoc.setAttribute("text-color", `${hexColorFgDark}`);
-    } else {
-      rapiDoc.setAttribute("bg-color", `${hexColorBgLight}`);
-      rapiDoc.setAttribute("text-color", `${hexColorFgLight}`);
-    }
-  };
-
-  window.addEventListener("DOMContentLoaded", () => {
-    const theme = document.documentElement.getAttribute('data-theme') || "dark";
-    setRapidocTheme(theme);
-  });
-</script>
+      });
+    </script>
+  </>
+)}
