@@ -15,5 +15,8 @@
 		"astro": "catalog:",
 		"sharp": "catalog:",
 		"starlight-rapidoc": "workspace:*"
+	},
+	"devDependencies": {
+		"vite": "^7.3.1"
 	}
 }

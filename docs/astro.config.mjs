@@ -4,11 +4,14 @@ import mdx from "@astrojs/mdx";
 import starlight from "@astrojs/starlight";
 import { defineConfig } from "astro/config";
 import starlightRapidocPlugin from "../packages/starlight-rapidoc";
+import { loadEnv } from "vite";
+
+const { BASE_PATH } = loadEnv(process.env.BASE_PATH || '/', process.cwd(), "");
 
 // https://astro.build/config
 export default defineConfig({
 	site: "https://github.com/jbend/starlight-rapidoc",
-	base: "/",
+	base: BASE_PATH,
 	integrations: [
 		starlight({
 			title: "Starlight Rapidoc",
