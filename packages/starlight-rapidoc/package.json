@@ -5,7 +5,12 @@
 	"author": "jbend",
 	"license": "MIT",
 	"type": "module",
-	"scripts": {},
+	"scripts": {
+		"test": "vitest run",
+		"test:watch": "vitest",
+		"test:ui": "vitest --ui",
+		"test:coverage": "vitest run --coverage"
+	},
 	"exports": {
 		".": "./index.ts",
 		"./schema": "./schema.ts",
@@ -15,6 +20,7 @@
 	"devDependencies": {
 		"@astrojs/starlight": "catalog:",
 		"@types/node": "^24.10.1",
+		"@vitest/coverage-v8": "^4.0.17",
 		"tsdown": "^0.16.7",
 		"typescript": "^5.9.3",
 		"zod": "^4.1.13"
