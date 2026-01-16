@@ -1,0 +1,26 @@
+---
+title: MDX demo with markdown
+specFile: https://raw.githubusercontent.com/dlt-hub/openapi-specs/refs/heads/main/open_api_specs/Public/ron_swanson_quotes.yaml
+allowTry: true
+allowSpecDownload: true
+allowServerSelection: true
+---
+# OpenAPI Specification
+
+This page demonstrates how you can combine markdown content with an OpenAPI specification viewer. The markdown content you write here will appear above the interactive API documentation, allowing you to provide context, usage examples, or any additional information before users explore the API endpoints. This is particularly useful for providing overview information, authentication details, or getting started guides that complement the technical API documentation.
+
+Use prudence when adding additional content to this page.
+
+import { Card } from '@astrojs/starlight/components';
+
+<Card title="Stars" icon="star">
+  Sirius, Vega, Betelgeuse.
+</Card>
+
+import { LinkCard } from '@astrojs/starlight/components';
+
+<LinkCard
+  title="Regular Markdown example"
+  href="/demo/openapi-with-md/"
+  description="You have power over your mind—not outside events. Realize this, and you will find strength."
+/>

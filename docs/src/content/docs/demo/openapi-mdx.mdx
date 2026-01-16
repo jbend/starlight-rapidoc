@@ -1,0 +1,7 @@
+---
+title: Demo OpenAPI
+specFile: https://raw.githubusercontent.com/dlt-hub/openapi-specs/refs/heads/main/open_api_specs/Public/ron_swanson_quotes.yaml
+allowTry: true
+allowSpecDownload: true
+allowServerSelection: true
+---

@@ -3,10 +3,10 @@
 import mdx from "@astrojs/mdx";
 import starlight from "@astrojs/starlight";
 import { defineConfig } from "astro/config";
-import starlightRapidocPlugin from "../packages/starlight-rapidoc";
 import { loadEnv } from "vite";
+import starlightRapidocPlugin from "../packages/starlight-rapidoc";
 
-const { BASE_PATH } = loadEnv(process.env.BASE_PATH || '/', process.cwd(), "");
+const { BASE_PATH } = loadEnv(process.env.BASE_PATH || "/", process.cwd(), "");
 
 // https://astro.build/config
 export default defineConfig({
@@ -17,9 +17,9 @@ export default defineConfig({
 			title: "Starlight Rapidoc",
 			plugins: [
 				starlightRapidocPlugin({
-					hexColorBgLight: "#f1f1f6",
+					hexColorBgLight: "#ffffff",
 					hexColorFgLight: "#171c1e",
-					hexColorBgDark: "#252a2e",
+					hexColorBgDark: "#17181C",
 					hexColorFgDark: "#f1f1f6",
 				}),
 			],
@@ -43,7 +43,10 @@ export default defineConfig({
 					label: "Demo",
 					items: [
 						// Each item here is one entry in the navigation menu.
-						{ label: "OpenAPI", slug: "demo/openapi" },
+						{ label: "OpenAPI MD", slug: "demo/openapi-md" },
+						{ label: "OpenAPI with MD", slug: "demo/openapi-with-md" },
+						{ label: "OpenAPI MDX", slug: "demo/openapi-mdx" },
+						{ label: "OpenAPI with MDX", slug: "demo/openapi-with-mdx" },
 					],
 				},
 			],
