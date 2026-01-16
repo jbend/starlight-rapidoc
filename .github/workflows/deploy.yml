@@ -13,7 +13,7 @@ permissions:
 jobs:
   build:
     # This line ensures the job only runs on the original repository
-    if: github.repository == 'jbend/starlight-plugin-template'
+    if: github.repository == 'jbend/starlight-rapidoc'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout your repository using git
