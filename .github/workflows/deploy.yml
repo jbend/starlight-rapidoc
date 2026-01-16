@@ -28,7 +28,7 @@ jobs:
       
   deploy:
     # We add it here too as a best practice
-    if: github.repository == 'jbend/starlight-plugin-template'
+    if: github.repository == 'jbend/starlight-rapidoc'
     needs: build
     runs-on: ubuntu-latest
     environment:
