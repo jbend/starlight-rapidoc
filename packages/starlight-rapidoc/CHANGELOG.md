@@ -1,5 +1,11 @@
 # starlight-rapidoc
 
+## 0.1.2
+
+### Patch Changes
+
+- Updating packages
+
 ## 0.1.1
 
 ### Patch Changes
