@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
-import { vitePluginStarlightRapidoc } from "./vite";
 import type { ResolvedStarlightRapidocConfig } from "./config";
+import { vitePluginStarlightRapidoc } from "./vite";
 
 describe("vitePluginStarlightRapidoc", () => {
 	const mockConfig: ResolvedStarlightRapidocConfig = {
