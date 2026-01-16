@@ -1,5 +1,11 @@
 # starlight-rapidoc
 
+## 0.1.1
+
+### Patch Changes
+
+- Adding support for including markdown and mdx content above the OpenApi spec
+
 ## 0.1.0
 
 ### Minor Changes
