@@ -19,11 +19,10 @@
 	},
 	"devDependencies": {
 		"@astrojs/starlight": "catalog:",
-		"@types/node": "^24.10.1",
+		"@types/node": "^24.10.9",
 		"@vitest/coverage-v8": "^4.0.17",
-		"tsdown": "^0.16.7",
-		"typescript": "^5.9.3",
-		"zod": "^4.1.13"
+		"typescript": "catalog:",
+		"zod": "^4.3.5"
 	},
 	"keywords": [
 		"astro",
