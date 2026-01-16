@@ -7,6 +7,7 @@
 		"dev": "pnpm --filter starlight-rapidoc-docs dev",
 		"build": "pnpm --filter starlight-rapidoc-docs build",
 		"test": "pnpm -r test",
+		"test:package": "pnpm --filter starlight-rapidoc test",
 		"test:coverage": "pnpm --filter starlight-rapidoc test:coverage",
 		"check": "astro check --root docs",
 		"lint": "biome check --write",
