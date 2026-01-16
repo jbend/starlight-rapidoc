@@ -124,5 +124,65 @@ describe("starlightRapidocPlugin", () => {
 				);
 			}
 		});
+
+		it("should handle invalid configuration and log error", async () => {
+			const invalidConfig = {
+				hexColorBgLight: "invalid-color", // Invalid hex color
+			};
+
+			const plugin = starlightRapidocPlugin(invalidConfig as any);
+			const hook = plugin.hooks["config:setup"];
+
+			if (hook) {
+				await hook({
+					updateConfig: mockUpdateConfig,
+					logger: mockLogger,
+					addIntegration: mockAddIntegration,
+					config: mockConfig,
+				} as any);
+
+				expect(mockLogger.error).toHaveBeenCalled();
+				expect(mockLogger.error).toHaveBeenCalledWith(
+					expect.stringContaining("Must be a valid hex color"),
+				);
+				expect(mockUpdateConfig).not.toHaveBeenCalled();
+				expect(mockAddIntegration).not.toHaveBeenCalled();
+			}
+		});
+
+		it("should call integration hook with vite plugin", async () => {
+			const config: StarlightRapidocConfig = {
+				hexColorBgLight: "#FFFFFF",
+				hexColorBgDark: "#000000",
+			};
+
+			const plugin = starlightRapidocPlugin(config);
+			const hook = plugin.hooks["config:setup"];
+
+			let integrationHookCalled = false;
+			let viteUpdateConfigCalled = false;
+
+			if (hook) {
+				await hook({
+					updateConfig: mockUpdateConfig,
+					logger: mockLogger,
+					addIntegration: (integration: any) => {
+						integrationHookCalled = true;
+						// Simulate calling the integration hook
+						if (integration.hooks?.["astro:config:setup"]) {
+							integration.hooks["astro:config:setup"]({
+								updateConfig: () => {
+									viteUpdateConfigCalled = true;
+								},
+							} as any);
+						}
+					},
+					config: mockConfig,
+				} as any);
+
+				expect(integrationHookCalled).toBe(true);
+				expect(viteUpdateConfigCalled).toBe(true);
+			}
+		});
 	});
 });
