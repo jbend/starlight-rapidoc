@@ -7,6 +7,8 @@
 		"dev": "pnpm --filter starlight-rapidoc-docs dev",
 		"build": "pnpm --filter starlight-rapidoc-docs build",
 		"test": "pnpm -r test",
+		"test:package": "pnpm --filter starlight-rapidoc test",
+		"test:coverage": "pnpm --filter starlight-rapidoc test:coverage",
 		"check": "astro check --root docs",
 		"lint": "biome check --write",
 		"version": "pnpm changeset version && pnpm i --no-frozen-lockfile",
@@ -23,10 +25,12 @@
 	"packageManager": "pnpm@10.17.0",
 	"devDependencies": {
 		"@astrojs/check": "catalog:",
-		"@biomejs/biome": "^2.3.8",
+		"@biomejs/biome": "^2.3.11",
 		"@changesets/changelog-github": "^0.5.2",
 		"@changesets/cli": "^2.29.8",
-		"@types/node": "^24.10.1",
-		"astro": "catalog:"
+		"@types/node": "^24.10.9",
+		"@vitest/ui": "^4.0.17",
+		"astro": "catalog:",
+		"vitest": "^4.0.17"
 	}
 }
