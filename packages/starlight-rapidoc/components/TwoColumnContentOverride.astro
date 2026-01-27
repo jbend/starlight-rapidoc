@@ -1,9 +1,9 @@
 ---
 import { render } from "astro:content";
 import starlightRapidocConfig from "virtual:starlight-rapidoc-config";
-import ContentPanel from "@astrojs/starlight/components/ContentPanel.astro";
 import MarkdownContent from "@astrojs/starlight/components/MarkdownContent.astro";
 import Default from "@astrojs/starlight/components/TwoColumnContent.astro";
+import { generateUrl } from "../libs/url";
 
 const hexColorBgLight = starlightRapidocConfig.hexColorBgLight;
 const hexColorBgDark = starlightRapidocConfig.hexColorBgDark;
@@ -26,6 +26,8 @@ const isOpenApiPage = !!specFile;
 const { Content: MarkdownBody } = isOpenApiPage
 	? await render(entry)
 	: { Content: null };
+
+const finalUrl = generateUrl(import.meta.env.BASE_URL, specFile);
 ---
 {isOpenApiPage ? (
     <script slot="head" src="https://unpkg.com/rapidoc/dist/rapidoc-min.js"></script>
@@ -46,7 +48,7 @@ const { Content: MarkdownBody } = isOpenApiPage
         id="rapidoc"
         layout="column"
         render-style="view"
-        spec-url={specFile}
+        spec-url={finalUrl}
         schema-style="table"
         schema-description-expanded="true"
         primary-color="#0063a3"hub87n

@@ -1,5 +1,11 @@
 # starlight-rapidoc
 
+## 0.1.3
+
+### Patch Changes
+
+- Adding support for local spec files (such as `/public/spec.yaml`).
+
 ## 0.1.2
 
 ### Patch Changes
