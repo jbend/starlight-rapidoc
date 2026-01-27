@@ -47,6 +47,7 @@ export default defineConfig({
 						{ label: "OpenAPI with MD", slug: "demo/openapi-with-md" },
 						{ label: "OpenAPI MDX", slug: "demo/openapi-mdx" },
 						{ label: "OpenAPI with MDX", slug: "demo/openapi-with-mdx" },
+						{ label: "OpenAPI local", slug: "demo/openapi-local" },
 					],
 				},
 			],
