@@ -2,6 +2,7 @@
 import { render } from "astro:content";
 import starlightRapidocConfig from "virtual:starlight-rapidoc-config";
 import MarkdownContent from "@astrojs/starlight/components/MarkdownContent.astro";
+import PageSidebar from "@astrojs/starlight/components/PageSidebar.astro";
 import Default from "@astrojs/starlight/components/TwoColumnContent.astro";
 import { generateUrl } from "../libs/url";
 
@@ -64,6 +65,7 @@ const finalUrl = generateUrl(import.meta.env.BASE_URL, specFile);
   </main>
 ) : (
   <Default>
+    <PageSidebar slot="right-sidebar" />
     <slot />
   </Default>
 )}
