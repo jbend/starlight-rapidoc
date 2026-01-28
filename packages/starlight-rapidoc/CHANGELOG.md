@@ -1,5 +1,11 @@
 # starlight-rapidoc
 
+## 0.1.4
+
+### Patch Changes
+
+- Fix missing right sidebar content
+
 ## 0.1.3
 
 ### Patch Changes
