@@ -1,7 +1,7 @@
 {
 	"name": "starlight-rapidoc",
 	"description": "Starlight plugin for adding Rapidoc to your documentation",
-	"version": "0.1.3",
+	"version": "0.1.4",
 	"author": "jbend",
 	"license": "MIT",
 	"type": "module",
