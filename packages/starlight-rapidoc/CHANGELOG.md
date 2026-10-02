@@ -1,5 +1,11 @@
 # starlight-rapidoc
 
+## 0.1.5
+
+### Patch Changes
+
+- Pin the RapiDoc script to 9.3.8. The 10.x release is an ES module and breaks the classic script tag this plugin uses.
+
 ## 0.1.4
 
 ### Patch Changes
