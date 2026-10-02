@@ -31,7 +31,7 @@ const { Content: MarkdownBody } = isOpenApiPage
 const finalUrl = generateUrl(import.meta.env.BASE_URL, specFile);
 ---
 {isOpenApiPage ? (
-    <script slot="head" src="https://unpkg.com/rapidoc/dist/rapidoc-min.js"></script>
+    <script is:inline src="https://cdn.jsdelivr.net/npm/rapidoc@9.3.8/dist/rapidoc-min.js"></script>
     <main
 					lang={starlightRoute.entryMeta.lang}
 					dir={starlightRoute.entryMeta.dir}
@@ -52,7 +52,7 @@ const finalUrl = generateUrl(import.meta.env.BASE_URL, specFile);
         spec-url={finalUrl}
         schema-style="table"
         schema-description-expanded="true"
-        primary-color="#0063a3"hub87n
+        primary-color="#0063a3"
         show-header="false"
         server-url={serverUrl}
         default-api-server={serverUrl}
@@ -91,11 +91,6 @@ const finalUrl = generateUrl(import.meta.env.BASE_URL, specFile);
     </style>
 
     <script define:vars={{ hexColorBgDark, hexColorFgDark, hexColorBgLight, hexColorFgLight }}>
-      console.log(`hexColorBgDark: ${hexColorBgDark}`);
-      console.log(`hexColorFgDark: ${hexColorFgDark}`);
-      console.log(`hexColorBgLight: ${hexColorBgLight}`);
-      console.log(`hexColorFgLight: ${hexColorFgLight}`);
-
       const observer = new MutationObserver((mutations) => {
         mutations.forEach((mutation) => {
           if (mutation.attributeName === 'data-theme') {
